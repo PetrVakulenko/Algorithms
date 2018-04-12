@@ -23,7 +23,7 @@ package String.HammingDistance_461;
     The above arrows point to positions where the corresponding bits are different.
  */
 
-class Solution {
+public class Solution {
     public int hammingDistance(int x, int y) {
         String x_bin = Integer.toBinaryString(x);
         String y_bin = Integer.toBinaryString(y);
