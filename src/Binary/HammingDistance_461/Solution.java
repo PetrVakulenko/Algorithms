@@ -1,4 +1,4 @@
-package String.HammingDistance_461;
+package Binary.HammingDistance_461;
 
 /**
  461. Hamming Distance

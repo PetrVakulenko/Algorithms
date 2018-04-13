@@ -1,4 +1,4 @@
-package String.HammingDistance_461;
+package Binary.HammingDistance_461;
 
 public class Main {
     public static void main(String[] args) {
