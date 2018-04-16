@@ -1,4 +1,4 @@
-package Binary.CountingBits;
+package Binary.CountingBits_338;
 
 public class Solution {
     public int[] countBits(int num) {
