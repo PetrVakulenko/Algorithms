@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- 766. Toeplitz Matrix
+ 905. Sort Array By Parity
  https://leetcode.com/problems/sort-array-by-parity/description/
 
  Given an array A of non-negative integers.
