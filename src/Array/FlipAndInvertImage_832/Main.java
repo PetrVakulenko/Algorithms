@@ -7,9 +7,9 @@ public class Main {
         Solution s = new Solution();
 
         int[][] array = {{1,1,0},{1,0,1},{0,0,0}};
-        PrintResult.showResult(array);
+        PrintResult.printMatrix(array);
 
         int[][] result = s.SortArrayByParity(array);
-        PrintResult.showResult(result);
+        PrintResult.printMatrix(result);
     }
 }
