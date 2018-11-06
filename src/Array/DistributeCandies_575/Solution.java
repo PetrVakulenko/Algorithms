@@ -31,6 +31,7 @@ import java.util.Set;
 public class Solution {
     public int distributeCandies(int[] candies) {
         Set<Integer> set = new HashSet<>();
+        System.out.println(candies);
         for (Integer c :candies){
             set.add(c);
             if (set.size() == candies.length/2) return set.size();
