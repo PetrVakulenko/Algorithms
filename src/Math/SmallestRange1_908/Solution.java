@@ -1,4 +1,4 @@
-package Math.SmallestRange1;
+package Math.SmallestRange1_908;
 
 /**
  908. Smallest Range I
