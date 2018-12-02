@@ -1,5 +1,8 @@
 package Utils;
 
+import java.util.List;
+import java.util.Set;
+
 public class PrintResult {
     public static void printMatrix(int[][] result)
     {
@@ -14,6 +17,15 @@ public class PrintResult {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
+        System.out.println();
+    }
+
+    public static void printListInteger(List<Integer> list)
+    {
+        for(int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
+        }
+
         System.out.println();
     }
 }

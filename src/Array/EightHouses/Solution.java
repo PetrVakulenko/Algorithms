@@ -1,41 +1,58 @@
-package Array.DistributeCandies_575;
+package Array.EightHouses;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
- 575. Distribute Candies
- https://leetcode.com/problems/distribute-candies/description/
-
- Given an integer array with even length, where different numbers in this array represent different kinds of candies. Each number means one candy of the corresponding kind. You need to distribute these candies equally in number to brother and sister. Return the maximum number of kinds of candies the sister could gain.
+ Eight houses, represented as cells, are arranged in a straight line.
+ Each day every cell competes with its adjacent cells (neighbors).
+ An integer value of 1 represents an active cell and a value of 0 represents an inactive cell.
+ If the neighbors on both the sides of a cell are either active or inactive,
+    the cell becomes inactive on the next day; otherwise the cell becomes active.
+ The two cells on each end have a single adjacent cell,
+    so assume that the unoccupied space on the opposite side is an inactive cell.
+ Even after updating the cell state, consider its previous state when updating the state of other cells.
+ The state information of all cells should be updated simultaneously.
 
  Example 1:
- Input: candies = [1,1,2,2,3,3]
- Output: 3
- Explanation:
- There are three different kinds of candies (1, 2 and 3), and two candies for each kind.
- Optimal distribution: The sister has candies [1,2,3] and the brother has candies [1,2,3], too.
- The sister has three different kinds of candies.
+ Input: states = [1,1,1,0,1,1,1,1], days = 2
+ Output: [0,0,0,0,0,1,1,0]
 
- Example 2:
- Input: candies = [1,1,2,3]
- Output: 2
- Explanation: For example, the sister has candies [2,3] and the brother has candies [1,1].
- The sister has two different kinds of candies, the brother has only one kind of candies.
-
- Note:
- The length of the given array is in range [2, 10,000], and will be even.
- The number in given array is in range [-100,000, 100,000].
  */
 
 public class Solution {
-    public int distributeCandies(int[] candies) {
-        Set<Integer> set = new HashSet<>();
-        System.out.println(candies);
-        for (Integer c :candies){
-            set.add(c);
-            if (set.size() == candies.length/2) return set.size();
+    public List cellCompete(int[] states, int days)
+    {
+        int i = 0, j = 0, arrLength = states.length;
+
+        List<Integer> result = new ArrayList<>();
+
+        int[] tmp = Arrays.copyOf(states, arrLength);
+
+        for(i = 0; i < days; i++) {
+            for (j = 0; j < arrLength; j++) {
+                if (j == 0) {
+                    tmp[j] = states[1] == 0 ? 0 : 1;
+                    continue;
+                }
+
+                if (j == arrLength - 1) {
+                    tmp[j] = states[j-1] == 0 ? 0 : 1;
+                    continue;
+                }
+
+                tmp[j] = states[j-1] == states[j+1] ? 0 : 1;
+
+            }
+
+            states = Arrays.copyOf(tmp, arrLength);
         }
-        return Math.min(set.size(), candies.length/2);
+
+        for (i = 0; i < arrLength; i++){
+            result.add(tmp[i]);
+        }
+
+        return result;
     }
 }
