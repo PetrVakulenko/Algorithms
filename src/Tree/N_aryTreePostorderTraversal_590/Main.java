@@ -28,6 +28,6 @@ public class Main{
 
         Solution s = new Solution();
         System.out.println("Result:");
-        Utils.PrintResult.printListInteger(s.preorder(n1));
+        Utils.PrintResult.printListInteger(s.postorder(n1));
     }
 }
