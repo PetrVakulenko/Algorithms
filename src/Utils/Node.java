@@ -2,13 +2,13 @@ package Utils;
 
 import java.util.List;
 
-public class NaryNode {
+public class Node {
     public int val;
-    public List<NaryNode> children;
+    public List<Node> children;
 
-    public NaryNode() {}
+    public Node() {}
 
-    public NaryNode(int _val,List<NaryNode> _children) {
+    public Node(int _val, List<Node> _children) {
         val = _val;
         children = _children;
     }
