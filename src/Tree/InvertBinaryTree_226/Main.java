@@ -5,24 +5,17 @@ import Utils.TreeNode;
 public class Main{
     public static void main(String[] argv) {
         TreeNode tree1 = new TreeNode(1);
-        tree1.left = new TreeNode(3);
-        tree1.right = new TreeNode(2);
-        tree1.left.left = new TreeNode(5);
-        System.out.println("Tree1:");
-        TreeNode.inorder(tree1);
-        System.out.println();
-
+        TreeNode tree3 = new TreeNode(3);
         TreeNode tree2 = new TreeNode(2);
-        tree2.left = new TreeNode(1);
-        tree2.left.right = new TreeNode(4);
-        tree2.right = new TreeNode(3);
-        tree2.right.right = new TreeNode(7);
-        System.out.println("Tree2:");
-        TreeNode.inorder(tree2);
-        System.out.println();
+        tree2.left = tree1;
+        tree2.right = tree2;
+        TreeNode tree7 = new TreeNode(7);
+        TreeNode root = new TreeNode(4);
+        root.left = tree3;
+        root.right = tree7;
 
         Solution s = new Solution();
-        TreeNode resultTree = s.mergeTrees(tree1, tree2);
+        TreeNode resultTree = s.invertTree(root);
         System.out.println("Result:");
         TreeNode.inorder(resultTree);
     }
