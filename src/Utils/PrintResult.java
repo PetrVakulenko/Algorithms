@@ -28,4 +28,13 @@ public class PrintResult {
 
         System.out.println();
     }
+
+    public static void printListDouble(List<Double> list)
+    {
+        for(int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
+        }
+
+        System.out.println();
+    }
 }
