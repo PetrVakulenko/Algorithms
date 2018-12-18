@@ -1,4 +1,4 @@
-package Tree.ConstructStringFromBinaryTree_606;
+package Tree.RangeSumOfBST_938_;
 
 import Utils.TreeNode;
 
@@ -15,6 +15,6 @@ public class Main{
         root.right = tree7;
 
         Solution s = new Solution();
-        System.out.println(s.tree2str(root));
+        System.out.println(s.rangeSumBST(root, 2, 3));
     }
 }
