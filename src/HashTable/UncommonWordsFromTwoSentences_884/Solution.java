@@ -33,27 +33,11 @@ public class Solution {
     public String[] uncommonFromSentences(String A, String B) {
         HashMap<String, Integer> h = new HashMap<>();
 
-        String[] tmpArr = A.split(" ");
+        String[] tmpArr = (A + " " + B).split(" ");
         int i, tmp;
 
         for (i = 0; i < tmpArr.length; i++) {
-            if (h.get(tmpArr[i]) != null) {
-                tmp = h.get(tmpArr[i]);
-            } else {
-                tmp = 0;
-            }
-
-            h.put(tmpArr[i], tmp+1);
-        }
-
-        tmpArr = B.split(" ");
-
-        for (i = 0; i < tmpArr.length; i++) {
-            if (h.get(tmpArr[i]) != null) {
-                tmp = h.get(tmpArr[i]);
-            } else {
-                tmp = 0;
-            }
+            tmp = h.get(tmpArr[i]) != null ? h.get(tmpArr[i]) : 0;
 
             h.put(tmpArr[i], tmp+1);
         }
