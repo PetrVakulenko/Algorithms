@@ -1,58 +1,56 @@
-package Greedy.DeleteColumnsToMakeSorted_944;
+package Greedy.MinimumAddToMakeParenthesesValid_921;
 
 /**
- 944. Delete Columns to Make Sorted
- https://leetcode.com/problems/delete-columns-to-make-sorted/
+ 921. Minimum Add to Make Parentheses Valid
+ https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/
 
- We are given an array A of N lowercase letter strings, all of the same length.
- Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices.
+ Given a string S of '(' and ')' parentheses, we add the minimum number of parentheses ( '(' or ')',
+    and in any positions ) so that the resulting parentheses string is valid.
 
- For example, if we have an array A = ["abcdef","uvwxyz"] and deletion indices {0, 2, 3},
-    then the final array after deletions is ["bef", "vyz"],
-    and the remaining columns of A are ["b","v"], ["e","y"], and ["f","z"].
- (Formally, the c-th column is [A[0][c], A[1][c], ..., A[A.length-1][c]].)
-
- Suppose we chose a set of deletion indices D such that after deletions,
-    each remaining column in A is in non-decreasing sorted order.
- Return the minimum possible value of D.length.
+ Formally, a parentheses string is valid if and only if:
+ It is the empty string, or
+ It can be written as AB (A concatenated with B), where A and B are valid strings, or
+ It can be written as (A), where A is a valid string.
+ Given a parentheses string, return the minimum number of parentheses we must add to make the resulting string valid.
 
  Example 1:
- Input: ["cba","daf","ghi"]
+ Input: "())"
  Output: 1
- Explanation:
- After choosing D = {1}, each column ["c","d","g"] and ["a","f","i"] are in non-decreasing sorted order.
- If we chose D = {}, then a column ["b","a","h"] would not be in non-decreasing sorted order.
 
  Example 2:
- Input: ["a","b"]
- Output: 0
- Explanation: D = {}
+ Input: "((("
+ Output: 3
 
  Example 3:
- Input: ["zyx","wvu","tsr"]
- Output: 3
- Explanation: D = {0, 1, 2}
+ Input: "()"
+ Output: 0
+
+ Example 4:
+ Input: "()))(("
+ Output: 4
+
 
  Note:
- 1 <= A.length <= 100
- 1 <= A[i].length <= 1000
+ S.length <= 1000
+ S only consists of '(' and ')' characters.
+
  */
 
 public class Solution {
-    public int minDeletionSize(String[] A) {
-        int ret = 0;
-        for (int i = 0; i < A[0].length(); ++i) {
-            if (! isSorted(A, i)) ret++;
-        }
-        return ret;
-    }
-
-    private boolean isSorted(String[] A, int col) {
-        for (int i = 0; i < A.length - 1; ++i) {
-            if (A[i].charAt(col) > A[i + 1].charAt(col)) {
-                return false;
+    public int minAddToMakeValid(String S) {
+        int opened = 0, closed = 0, n;
+        for(char c: S.toCharArray()) {
+            if (c == ')') {
+                if (opened > 0) {
+                    opened--;
+                } else {
+                    closed++;
+                }
+            } else if (c == '(') {
+                opened++;
             }
         }
-        return true;
+
+        return closed + opened;
     }
 }
