@@ -1,8 +1,8 @@
 package Binary.PrimeNumberOfSetBitsInBinaryRepresentation_762;
 
 /**
- 476. Number Complement
- https://leetcode.com/problems/number-complement/description/
+ 762. Prime Number of Set Bits in Binary Representation
+ https://leetcode.com/problems/prime-number-of-set-bits-in-binary-representation/
 
  Given two integers L and R, find the count of numbers in the range [L, R] (inclusive)
     having a prime number of set bits in their binary representation.
