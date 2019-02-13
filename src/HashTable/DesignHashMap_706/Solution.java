@@ -3,8 +3,8 @@ package HashTable.DesignHashMap_706;
 import java.util.Arrays;
 
 /**
- 739. Daily Temperatures
- https://leetcode.com/problems/daily-temperatures/
+ 706. Design HashMap
+ https://leetcode.com/problems/design-hashmap/
 
  Design a HashMap without using any built-in hash table libraries.
  To be specific, your design should include these functions:
