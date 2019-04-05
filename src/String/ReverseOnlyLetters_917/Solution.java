@@ -32,7 +32,6 @@ public class Solution {
         int i = 0, j = S.toCharArray().length - 1;
 
         while(i <= j) {
-            System.out.println(i + " " + j);
             if ((letters[i] < 'A' || letters[i] > 'Z') && (letters[i] < 'a' || letters[i] > 'z')) {
                 i++;
 
