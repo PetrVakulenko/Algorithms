@@ -21,7 +21,7 @@ public class Main{
         root.right = tree6;
 
         Solution s = new Solution();
-        int res = s.sumOfLeftLeaves(root);
+        int res = s.sumRootToLeaf(root);
         System.out.println(res);
     }
 }
