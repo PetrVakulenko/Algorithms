@@ -1,9 +1,5 @@
 package BinarySearch.GuessNumberHigherOrLower_374;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  374. Guess Number Higher or Lower
 
@@ -21,6 +17,12 @@ import java.util.Set;
  */
 
 public class Solution {
+    private int guessNum;
+
+    public Solution (int num) {
+        this.guessNum = num;
+    }
+
     public int guessNumber(int n) {
         int left = 1;
         int right = n;
@@ -43,6 +45,12 @@ public class Solution {
 
     private int guess(int num)
     {
-        return 0;
+        if (guessNum < num) {
+            return -1;
+        } else if (guessNum > num) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }
