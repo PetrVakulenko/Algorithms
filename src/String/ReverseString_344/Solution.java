@@ -11,7 +11,21 @@ package String.ReverseString_344;
  */
 
 public class Solution {
-    public String reverseString(String s) {
+    public String reverseString(String str) {
+        char[] s = str.toCharArray();
+        int i = 0, j = s.length - 1;
+        while (i <= j) {
+            char tmp = s[i];
+            s[i] = s[j];
+            s[j] = tmp;
+            i++;
+            j--;
+        }
+
+        return new String(s);
+    }
+
+    public String reverseString1(String s) {
         char[] c = s.toCharArray();
         int l = c.length-1;
         int mid = (l+1)/2;
