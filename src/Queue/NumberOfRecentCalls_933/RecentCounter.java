@@ -1,7 +1,6 @@
 package Queue.NumberOfRecentCalls_933;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /**
  933. Number of Recent Calls
@@ -23,16 +22,38 @@ import java.util.Queue;
  Each call to ping will have 1 <= t <= 10^9.
  */
 
-public class Solution {
-    Queue<Integer> q;
+public class RecentCounter {
+    public static final int GAP = 3000;
+    private int indexToStart;
+    private List<Interval> intervals;
 
-    public void RecentCounter() {
-        q = new LinkedList<>();
+    class Interval{
+        int start;
+        int end;
+        public Interval(int s, int e){
+            this.start = s;
+            this.end = e;
+        }
+    }
+
+    public RecentCounter() {
+        intervals = new ArrayList<>();
+        indexToStart = 0;
     }
 
     public int ping(int t) {
-        q.offer(t);
-        while (q.peek() < t - 3000) { q.poll(); }
-        return q.size();
+        int newStart = t-GAP;
+        int newEnd = t;
+        intervals.add(new Interval(newStart, newEnd));
+
+        for (int i = indexToStart ; i < intervals.size(); i++){
+            if(newStart > intervals.get(i).end){
+                continue;
+            }else{
+                indexToStart = i;
+                break;
+            }
+        }
+        return intervals.size() - indexToStart;
     }
 }
