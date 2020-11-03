@@ -7,6 +7,9 @@ public class ListNode {
         val = x;
     }
 
+    public ListNode() {
+    }
+
     /* Given a binary tree, print its nodes in inorder*/
     public static void inorder(ListNode node)
     {
